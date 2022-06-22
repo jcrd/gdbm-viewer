@@ -11,13 +11,14 @@ changes live.
 ## Usage
 
 ```txt
-usage: gdbm-viewer [-h] path
+usage: gdbm-viewer [-h] [--max [MAX]] path
 
 positional arguments:
-  path        Path to gdbm file
+  path         Path to gdbm file
 
 options:
-  -h, --help  show this help message and exit
+  -h, --help   show this help message and exit
+  --max [MAX]  Maximum lines per column
 ```
 
 ## License
