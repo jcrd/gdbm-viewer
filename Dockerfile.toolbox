@@ -1,1 +1,3 @@
 FROM supplantr/python-toolbox
+
+RUN dnf install -y python-tkinter
