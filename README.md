@@ -21,6 +21,8 @@ options:
   --max [MAX]  Maximum lines per column
 ```
 
+Right-clicking an entry will delete it from the database.
+
 ## License
 
 This project is licensed under the MIT License (see [LICENSE](LICENSE)).

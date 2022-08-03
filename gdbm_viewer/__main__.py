@@ -13,9 +13,7 @@ def main():
 
     args = parser.parse_args()
 
-    ui = UI(args.max)
-    DB(args.path, ui.set)
-    ui.mainloop()
+    UI(DB(args.path), args.max).mainloop()
 
 
 if __name__ == "__main__":

@@ -11,17 +11,24 @@ class UI(Tk):
     def new_state(root):
         return (UI.new_entry(root), UI.new_entry(root))
 
-    def __init__(self, max_lines):
+    def __init__(self, db, max_lines):
         super().__init__()
 
         self.title("gdbm-viewer")
 
+        db.callback = self.set
+
+        self.db = db
         self.max_lines = max_lines
         self.frames = []
         self.state = []
 
-    def set(self, d):
+        self.set()
+
+    def set(self):
         self.clear()
+
+        d = self.db.read()
 
         for i in range(math.ceil(len(d) / self.max_lines)):
             f = Frame(self)
@@ -40,6 +47,7 @@ class UI(Tk):
             state = UI.new_state(frame)
 
             for j in range(2):
+                state[j].bind("<3>", lambda _: self.db.delete(p[0]))
                 state[j].insert(END, str(p[j]))
                 state[j].config(state=DISABLED)
                 state[j].grid(row=i, column=j)
